@@ -6,12 +6,14 @@ import PopBrowse from './components/PopBrowse/PopBrowse'
 import Header from './components/Header/Header'
 import Main from './components/Main/Main'
 import { cardList } from './data'
+import { GlobalStyle } from './global.styled.js'
 
 function App() {
   const [cards, setCards] = useState(cardList)
 
   return (
     <>
+      <GlobalStyle />
       <div className="wrapper">
 
 

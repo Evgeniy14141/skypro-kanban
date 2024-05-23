@@ -1,4 +1,4 @@
-* {
+/* * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -23,7 +23,17 @@ button,
 
 ul li {
   list-style: none;
-}
+} 
+
+
+
+html,
+body {
+  width: 100%;
+  height: 100%;
+  font-family: "Roboto", Arial, Helvetica, sans-serif;
+  color: #000000;
+} */
 
 @keyframes card-animation {
   0% {
@@ -35,14 +45,6 @@ ul li {
     opacity: 1;
   }
 }
-html,
-body {
-  width: 100%;
-  height: 100%;
-  font-family: "Roboto", Arial, Helvetica, sans-serif;
-  color: #000000;
-}
-
 .wrapper {
   max-width: 100%;
   width: 100vw;
