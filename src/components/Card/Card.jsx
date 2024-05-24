@@ -21,9 +21,6 @@ const Card = ({ topic, title, date }) => {
                 <S.TopicText>{topic}</S.TopicText>
             </S.CardTopic>
        
-            {/*<S.CardTopic $topicColor={`card__theme ${colorClass}`}>
-                <S.TopicText>{topic}</S.TopicText>
-</S.CardTopic>*/}
             <a href="#popBrowse" target="_self">
                 <div className="card__btn">
                     <div></div>
