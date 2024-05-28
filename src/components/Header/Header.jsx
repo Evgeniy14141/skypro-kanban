@@ -24,39 +24,39 @@ const Header = ({ setCards, cards }) => {
     <S.Header>
       <S.Container>
         <S.HeaderBlock>
-          <div className="header__logo _show _light">
+          <S.HeaderLogoShowLight>
             <a href="" target="_self">
-              <img src="images/logo.png" alt="logo" />
+              <S.HeaderLogoImage src="images/logo.png" alt="logo" />
             </a>
-          </div>
+          </S.HeaderLogoShowLight>
 
-          <div className="header__logo _dark">
-            <a href="" target="_self">
-              <img src="images/logo_dark.png" alt="logo" />
-            </a>
-          </div>
+          <S.HeaderLogoDark>
+            <S.Link href="" target="_self">
+              <S.HeaderLogoImage src="images/logo_dark.png" alt="logo" />
+            </S.Link>
+          </S.HeaderLogoDark>
 
           <S.HeaderNav>
-            <S.HeaderBtnMainNew onClick={onAddCard}>
+            <S.ButtonHeaderBtnMainNew onClick={onAddCard}>
               Создать новую задачу
-            </S.HeaderBtnMainNew>
+            </S.ButtonHeaderBtnMainNew>
             <S.HeaderUserHover02 onClick={handleOpen}>
               Ivan Ivanov
             </S.HeaderUserHover02>
 
             {isOpen && (
-              <div className="header__pop-user-set pop-user-set">
+              <S.HeaderPopUserSetPopUserSet>
                 <S.PopUserSetName>Ivan Ivanov</S.PopUserSetName>
                 <S.PopUserSetMail>ivan.ivanov@gmail.com</S.PopUserSetMail>
+
                 <S.PopUserSetTheme>
                   <p>Темная тема</p>
-                  <S.Checkbox></S.Checkbox>
+                  <S.InputCheckbox />
                 </S.PopUserSetTheme>
-
-                <S.Hover03>
-                  <a href="#popExit">Выйти</a>
-                </S.Hover03>
-              </div>
+                <S.ButtonHover03>
+                  <S.Link href="#popExit">Выйти</S.Link>
+                </S.ButtonHover03>
+              </S.HeaderPopUserSetPopUserSet>
             )}
           </S.HeaderNav>
         </S.HeaderBlock>

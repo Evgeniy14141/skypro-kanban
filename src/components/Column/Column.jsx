@@ -4,7 +4,8 @@ import * as S from "./Column.styled";
 const Column = ({ title, cardList }) => {
   return (
     
-    <div className="main__column column">
+    
+      <S.MainColumnColumn>
       <S.ColumnTitle>
         <S.ColumnTitleP>{title}</S.ColumnTitleP>
       </S.ColumnTitle>
@@ -15,7 +16,7 @@ const Column = ({ title, cardList }) => {
           <Card key={id} topic={topic} title={title} date={date} />
         ))}
       </S.Cards>
-    </div>  
+    </S.MainColumnColumn>  
     
   );
 };

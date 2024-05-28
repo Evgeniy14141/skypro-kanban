@@ -1,6 +1,5 @@
 import styled from "styled-components";
 
-
 export const Header = styled.header`
   width: 100%;
   margin: 0 auto;
@@ -30,6 +29,10 @@ export const HeaderLogoShowLight = styled.div`
   width: 85px;
 `;
 
+export const HeaderLogoImage = styled.img`
+  width: 85px;
+`;
+
 export const HeaderUserHover02 = styled.div`
   height: 20px;
   display: flex;
@@ -43,6 +46,31 @@ export const HeaderUserHover02 = styled.div`
   &:hover {
     color: #33399b;
   }
+  &::after {
+    content: "";
+    display: block;
+    width: 6px;
+    height: 6px;
+    border-radius: 1px;
+    border-left: 1.9px solid #565eef;
+    border-bottom: 1.9px solid #565eef;
+    transform: rotate(-45deg);
+    margin: -6px 0 0 5px;
+    padding: 0;
+  }
+`;
+
+export const ButtonHeaderBtnMainNew = styled.button`
+  width: 178px;
+  height: 30px;
+  border-radius: 4px;
+  background-color: #565eef;
+  color: #ffffff;
+  border: none;
+  font-size: 14px;
+  line-height: 1;
+  font-weight: 500;
+  margin-right: 20px;
 `;
 
 export const HeaderPopUserSetPopUserSet = styled.div`
@@ -60,6 +88,7 @@ export const HeaderPopUserSetPopUserSet = styled.div`
   text-align: center;
   z-index: 2;
   &:target {
+    display: block;
   }
 `;
 
@@ -95,14 +124,14 @@ export const PopUserSetTheme = styled.div`
   margin-bottom: 30px;
 `;
 
-export const Hover03 = styled.button`
-  &:hover {
-    background-color: #33399b;
-    color: #ffffff;
-  }
+export const PopUserSetThemeText = styled.p`
+  color: #000;
+  font-size: 14px;
+  line-height: 21px;
+  letter-spacing: -0.14px;
 `;
 
-export const Checkbox = styled.input`
+export const InputCheckbox = styled.input.attrs({ type: "checkbox" })`
   position: relative;
   width: 24px;
   height: 13px;
@@ -112,20 +141,43 @@ export const Checkbox = styled.input`
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
+  &::before {
+    content: "";
+    position: absolute;
+    top: 1px;
+    left: 1px;
+    width: 11px;
+    height: 11px;
+    border-radius: 50%;
+    background-color: #94a6be;
+    transition: 0.5s;
+  }
+  &:checked::before {
+    left: 12px;
+  }
 `;
 
-export const HeaderBtnMainNew = styled.button`
-  width: 178px;
+export const ButtonHover03 = styled.button`
+  width: 72px;
   height: 30px;
+  background: transparent;
+  color: #565eef;
   border-radius: 4px;
-  background-color: #565eef;
-  color: #ffffff;
-  border: none;
-  font-size: 14px;
-  line-height: 1;
-  font-weight: 500;
-  margin-right: 20px;
+  border: 1px solid #565eef;
   &:hover {
     background-color: #33399b;
+    color: #ffffff;
+  }
+`;
+
+export const HeaderLogoDark = styled.div`
+  display: none;
+  width: 85px;
+`;
+
+export const Link = styled.a`
+  color: #565eef;
+  &:hover {
+    color: #ffffff;
   }
 `;
