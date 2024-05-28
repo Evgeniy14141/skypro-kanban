@@ -25,9 +25,9 @@ const Header = ({ setCards, cards }) => {
       <S.Container>
         <S.HeaderBlock>
           <S.HeaderLogoShowLight>
-            <a href="" target="_self">
+            <S.Link href="" target="_self">
               <S.HeaderLogoImage src="images/logo.png" alt="logo" />
-            </a>
+            </S.Link>
           </S.HeaderLogoShowLight>
 
           <S.HeaderLogoDark>
