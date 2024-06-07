@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { hover01 } from "../shared.styled";
+//import { Link } from "react-router-dom";
 
 export const Header = styled.header`
   width: 100%;
@@ -176,17 +177,13 @@ export const ButtonHover03 = styled.button`
     color: #ffffff;
   }
 `;
-
 export const HeaderLogoDark = styled.div`
   display: none;
   width: 85px;
 `;
-
 export const Link = styled.a`
   color: #565eef;
   &:hover {
     color: #ffffff;
   }
 `;
-
-
