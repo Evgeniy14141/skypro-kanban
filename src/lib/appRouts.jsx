@@ -5,6 +5,7 @@ export const appRoutes = {
     CARD: "/card/:id",
     EXIT: "/exit",
     NOT_FOUND: "*",
+    NEW_CARD: "/newCard",
   };
 
   

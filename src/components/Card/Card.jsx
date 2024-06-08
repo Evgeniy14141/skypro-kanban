@@ -18,7 +18,7 @@ const Card = ({ topic, title, date, id }) => {
             <S.TopicText>{topic}</S.TopicText>
           </S.CardTopic>
 
-          <Link to={`/Card/${id}`}>
+          <Link to={`/card/${id}`}>
             <S.CardBtn>
               <S.CardBtnDiv></S.CardBtnDiv>
               <S.CardBtnDiv></S.CardBtnDiv>

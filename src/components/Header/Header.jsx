@@ -27,7 +27,7 @@ const Header = ({ setCards, cards }) => {
       <S.Container>
         <S.HeaderBlock>
           <S.HeaderLogoShowLight>
-            <S.Link href="*" target="_self">
+            <S.Link href="" target="_self">
               <S.HeaderLogoImage src="images/logo.png" alt="logo" />
             </S.Link>
           </S.HeaderLogoShowLight>
@@ -56,8 +56,9 @@ const Header = ({ setCards, cards }) => {
                   <S.InputCheckbox />
                 </S.PopUserSetTheme>
                 <S.ButtonHover03>
-                  
-                  <Link  to={appRoutes.EXIT} id="btnExit" type="submit">Выйти</Link >
+                  <Link to={appRoutes.EXIT} id="btnExit" type="submit">
+                    Выйти
+                  </Link>
                 </S.ButtonHover03>
               </S.HeaderPopUserSetPopUserSet>
             )}

@@ -38,7 +38,9 @@ export const RegisterPage = () => {
               <S.ModalFormGroup>
                 <S.ModalFormText>
                   Уже есть аккаунт?{" "}
-                  <S.ModalFormLink to={appRoutes.MAIN}>Войдите здесь</S.ModalFormLink>
+                  <S.ModalFormLink to={appRoutes.MAIN}>
+                    Войдите здесь
+                  </S.ModalFormLink>
                 </S.ModalFormText>
               </S.ModalFormGroup>
             </S.ModalFormLogin>

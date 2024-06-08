@@ -9,6 +9,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { appRoutes } from "../lib/appRouts";
 import ExitPage from "./ExitPage";
+import PopNewCard from "../components/PopNewCard/PopNewCard";
 
 function AppHome() {
     //const isAuth = true;
@@ -37,6 +38,7 @@ function AppHome() {
         <Route element={<PrivateRoute isAuth={isAuth} />}>
           <Route path={appRoutes.MAIN} element={<MainPage />}>
             <Route path={appRoutes.CARD} element={<CardPage />} />
+            <Route path={appRoutes.NEW_CARD} element={<PopNewCard />} />
             <Route path={appRoutes.EXIT} element={<ExitPage logout={logout} />} /> 
           </Route>
         </Route>

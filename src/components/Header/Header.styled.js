@@ -172,11 +172,14 @@ export const ButtonHover03 = styled.button`
   color: #565eef;
   border-radius: 4px;
   border: 1px solid #565eef;
-  &:hover {
+  &:hover,
+  &:hover a {
+    color: inherit;
     background-color: #33399b;
     color: #ffffff;
   }
 `;
+
 export const HeaderLogoDark = styled.div`
   display: none;
   width: 85px;
