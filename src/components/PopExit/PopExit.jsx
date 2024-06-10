@@ -1,27 +1,28 @@
-import { Button } from "../shared.styled";
+import { appRoutes } from "../../lib/appRouts";
+//import { Button } from "../../components/shared.styled";
+import * as S from "./PopExit.style";
+//import { Link } from "react-router-dom";
 
-
-const PopExit = () => {
-    return ( <div className="pop-exit" id="popExit">
-    <div className="pop-exit__container">
-        <div className="pop-exit__block">
-            <div className="pop-exit__ttl">
-                <h2>Выйти из аккаунта?</h2>
-            </div>
-            <form className="pop-exit__form" id="formExit" action="#">
-                <div className="pop-exit__form-group">
-                    <Button $primary>Да, выйти</Button>
-                    <Button>Нет, остаться</Button>
-
-                    {/* <button className="pop-exit__exit-yes _hover01" id="exitYes"><a href="modal/signin.html">Да, выйти</a> </button>
-                    <button className="pop-exit__exit-no _hover03" id="exitNo"><a href="main.html">Нет, остаться</a> </button>
-                    */}
-                    
-                </div>
-            </form>
-        </div>
-    </div>
-</div> );
-}
- 
-export default PopExit ;
+const PopExit = ({ logout }) => {
+  return (
+    <S.PopExit>
+      <S.PopExitContainer>
+        <S.PopExitBlock>
+          <S.PopExitTitle>
+            <h2>Выйти из аккаунта?</h2>
+          </S.PopExitTitle>
+          <S.PopExitForm id="formExit" action="#">
+            <S.PopExitFormGroup>
+              
+              <S.ButtonPopExitYes $primary onClick={logout}>
+                Да, выйти
+              </S.ButtonPopExitYes>
+              <S.ButtonNo to={appRoutes.MAIN}>Нет, остаться</S.ButtonNo>
+            </S.PopExitFormGroup>
+          </S.PopExitForm>
+        </S.PopExitBlock>
+      </S.PopExitContainer>
+    </S.PopExit>
+  );
+};
+export default PopExit;

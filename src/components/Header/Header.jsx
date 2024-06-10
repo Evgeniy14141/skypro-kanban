@@ -1,5 +1,7 @@
 import { useState } from "react";
 import * as S from "./Header.styled";
+import { appRoutes } from "../../lib/appRouts";
+import { Link } from "react-router-dom";
 
 const Header = ({ setCards, cards }) => {
   const [isOpen, setOpen] = useState(false);
@@ -54,7 +56,9 @@ const Header = ({ setCards, cards }) => {
                   <S.InputCheckbox />
                 </S.PopUserSetTheme>
                 <S.ButtonHover03>
-                  <S.Link href="#popExit">Выйти</S.Link>
+                  <Link to={appRoutes.EXIT} id="btnExit" type="submit">
+                    Выйти
+                  </Link>
                 </S.ButtonHover03>
               </S.HeaderPopUserSetPopUserSet>
             )}

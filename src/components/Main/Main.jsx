@@ -3,6 +3,9 @@ import Column from "../Column/Column";
 import * as S from "./Main.styled";
 import { Container } from "../shared.styled";
 
+
+
+
 const statusList = [
   "Без статуса",
   "Нужно сделать",
@@ -10,6 +13,8 @@ const statusList = [
   "Тестирование",
   "Готово",
 ];
+
+
 
 const Main = ({ cardList }) => {
   const [isLoading, setLoading] = useState(true);

@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { topicStyles } from "../lib/topic";
+import { topicStyles } from "../../lib/topic";
 
 export const TopicText = styled.p`
   font-size: 10px;

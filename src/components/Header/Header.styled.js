@@ -1,4 +1,6 @@
 import styled from "styled-components";
+import { hover01 } from "../shared.styled";
+//import { Link } from "react-router-dom";
 
 export const Header = styled.header`
   width: 100%;
@@ -63,14 +65,20 @@ export const HeaderUserHover02 = styled.div`
 export const ButtonHeaderBtnMainNew = styled.button`
   width: 178px;
   height: 30px;
-  border-radius: 4px;
   background-color: #565eef;
-  color: #ffffff;
+  border-radius: 4px;
   border: none;
+  outline: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   font-size: 14px;
-  line-height: 1;
+  line-height: 21px;
   font-weight: 500;
-  margin-right: 20px;
+  letter-spacing: -0.14px;
+  color: #ffffff;
+  margin-right: 10px;
+  ${hover01}
 `;
 
 export const HeaderPopUserSetPopUserSet = styled.div`
@@ -164,7 +172,9 @@ export const ButtonHover03 = styled.button`
   color: #565eef;
   border-radius: 4px;
   border: 1px solid #565eef;
-  &:hover {
+  &:hover,
+  &:hover a {
+    color: inherit;
     background-color: #33399b;
     color: #ffffff;
   }
@@ -174,7 +184,6 @@ export const HeaderLogoDark = styled.div`
   display: none;
   width: 85px;
 `;
-
 export const Link = styled.a`
   color: #565eef;
   &:hover {
