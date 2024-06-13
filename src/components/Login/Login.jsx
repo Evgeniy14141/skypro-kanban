@@ -5,42 +5,43 @@ import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { login } from "../../api";
 
-const Login = ({ setAuth, setUser }) => {
+export default function Login ({ setUser }) {
   const navigate = useNavigate();
 
   const [formValues, setFormValues] = useState({
-    email: "",
+    login: "",
     password: "",
   });
 
   const [error, setError] = useState(null);
 
   const onInputChange = (event) => {
-    const { name, value } = event.target;
-    setFormValues({ ...formValues, [name]: value });
+    const { name, value } = event.target; // Извлекаем имя поля и его значение
+    setFormValues({ ...formValues, // Копируем текущие данные из состояния
+      [name]: value }); // Обновляем нужное поле
   };
 
   const onLogin = async (event) => {
     event.preventDefault();
-    if (!formValues.email) {
-      setError("Не введена почта");
+    if (!formValues.login || formValues.login.trim().length === 0) {
+      setError("Не введен логин");
       return;
     }
 
-    if (!formValues.password) {
+    if (!formValues.password || formValues.password.trim().length === 0) {
       setError("Не введён пароль");
       return;
     }
 
     try {
       const response = await login({
-        login: formValues.email,
+        login: formValues.login,
         password: formValues.password,
       });
 
       console.log("LOGIN RESPONSE", response);
 
-      setAuth(true);
+      //setAuth(true);
       setUser(response.user);
       navigate(appRoutes.MAIN);
     } catch (error) {
@@ -64,10 +65,10 @@ const Login = ({ setAuth, setUser }) => {
 
             <S.ModalFormLogin onSubmit={onLogin}>
               <S.ModalInput
-                type="email"
-                name="email"
-                placeholder="Почта"
-                value={formValues.email}
+                type="text"
+                value={formValues.login}
+                placeholder="Логин"
+                name="login"
                 onChange={onInputChange}
               ></S.ModalInput>
               <S.ModalInput
@@ -94,7 +95,7 @@ const Login = ({ setAuth, setUser }) => {
   );
 };
 
-export default Login;
+
 
 {
   /*}
