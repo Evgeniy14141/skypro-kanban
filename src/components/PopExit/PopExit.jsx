@@ -13,7 +13,6 @@ const PopExit = ({ logout }) => {
           </S.PopExitTitle>
           <S.PopExitForm id="formExit" action="#">
             <S.PopExitFormGroup>
-              
               <S.ButtonPopExitYes $primary onClick={logout}>
                 Да, выйти
               </S.ButtonPopExitYes>

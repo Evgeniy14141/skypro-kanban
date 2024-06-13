@@ -1,7 +1,8 @@
-import { useEffect, useState } from "react";
+//import { useEffect, useState } from "react";
 import Column from "../Column/Column";
 import * as S from "./Main.styled";
 import { Container } from "../shared.styled";
+import MainPage from "../../pages/MainPage";
 
 
 
@@ -17,13 +18,13 @@ const statusList = [
 
 
 const Main = ({ cardList }) => {
-  const [isLoading, setLoading] = useState(true);
+  /*const [isLoading, setLoading] = useState(true);
   useEffect(() => {
     setTimeout(() => {
       setLoading(false);
     }, 2000);
   }, []);
-
+*/
   return (
     
       <S.Main>
