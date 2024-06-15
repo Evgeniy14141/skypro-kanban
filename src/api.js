@@ -52,7 +52,7 @@ export function register({ login, name, password }) {
 }
 
 //Авторизация
-export function login({ login, password }) {
+export function loginUser ({ login, password }) {
   return fetch(userHost + "/login", {
     method: "POST",
     body: JSON.stringify({

@@ -3,9 +3,9 @@ import * as S from "./Login.styled";
 import { appRoutes } from "../../lib/appRouts";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
-import { login } from "../../api";
+import { loginUser } from "../../api";
 
-export default function Login ({ setUser }) {
+const Login = () => {
   const navigate = useNavigate();
 
   const [formValues, setFormValues] = useState({
@@ -34,15 +34,15 @@ export default function Login ({ setUser }) {
     }
 
     try {
-      const response = await login({
+      const response = await loginUser ({
         login: formValues.login,
         password: formValues.password,
       });
 
       console.log("LOGIN RESPONSE", response);
 
-      setAuth(true);
-      setUser(response.user);
+      //setAuth(true);
+      //setUser(response.user);
       navigate(appRoutes.MAIN);
     } catch (error) {
       console.error(error.message);
@@ -95,7 +95,7 @@ export default function Login ({ setUser }) {
   );
 };
 
-
+export default Login;
 
 {
   /*}

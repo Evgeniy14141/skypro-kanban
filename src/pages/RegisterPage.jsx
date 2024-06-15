@@ -6,7 +6,7 @@ import { useState } from "react";
 import { register } from "../api.js";
 
 
-export default function RegisterPage ({ setUser }) {
+export default function RegisterPage () {
   const navigate = useNavigate();
 
   const [formValues, setFormValues] = useState({
@@ -50,8 +50,8 @@ export default function RegisterPage ({ setUser }) {
 
       console.log ("REGISTER RESPONSE", response);
 
-      setAuth(true);
-      setUser(response.user);
+      //setAuth(true);
+      //setUser(response.user);
       navigate(appRoutes.MAIN);
     } catch (error) {
       console.error(error.message);
