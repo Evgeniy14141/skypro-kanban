@@ -41,7 +41,7 @@ export default function Login ({ setUser }) {
 
       console.log("LOGIN RESPONSE", response);
 
-      //setAuth(true);
+      setAuth(true);
       setUser(response.user);
       navigate(appRoutes.MAIN);
     } catch (error) {

@@ -50,7 +50,7 @@ export default function RegisterPage ({ setUser }) {
 
       console.log ("REGISTER RESPONSE", response);
 
-      //setAuth(true);
+      setAuth(true);
       setUser(response.user);
       navigate(appRoutes.MAIN);
     } catch (error) {
@@ -73,7 +73,7 @@ export default function RegisterPage ({ setUser }) {
             <S.ModalFormLogin onSubmit={onRegister}>
               <S.ModalInput
                 type="text"
-                name="first-name"
+                name="name"
                 value={formValues.name}
                 onChange={onInputChange}
                 id="first-name"
@@ -81,7 +81,7 @@ export default function RegisterPage ({ setUser }) {
               />
               <S.ModalInput
                 type="text"
-                name="name"
+                name="login"
                 value={formValues.login}
                 onChange={onInputChange}
                 id="loginReg"

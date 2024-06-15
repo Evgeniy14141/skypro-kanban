@@ -27,7 +27,7 @@ function AppHome() {
     const logout = (e) => {
       console.log(1);
       e.preventDefault();
-      setAuth(false);
+      setAuth(true);
       navigate(appRoutes.LOGIN);
     };
   
