@@ -2,26 +2,16 @@ import { useState } from "react";
 import * as S from "./Header.styled";
 import { appRoutes } from "../../lib/appRouts";
 import { Link } from "react-router-dom";
+//import { useUser } from "../../hooks/userUser"; 
 
-const Header = ({ setCards, cards }) => {
+const Header = () => {
+
   const [isOpen, setOpen] = useState(false);
-  const handleOpen = () => {
-    setOpen((prev) => !prev);
-  };
+  function handleOpenModal() {
+    setOpen((prevState) => !prevState);
+  }
 
-  const onAddCard = () => {
-    const newCard = {
-      id: Date.now(),
-      title: "TEST",
-      topic: "Research",
-      date: "12.05.2024",
-      status: "Без статуса",
-    };
-
-    const newCardList = [...cards, newCard];
-    setCards(newCardList);
-  };
-
+  const { userData } = useUser();
   return (
     <S.Header>
       <S.Container>
@@ -39,17 +29,18 @@ const Header = ({ setCards, cards }) => {
           </S.HeaderLogoDark>
 
           <S.HeaderNav>
-            <S.ButtonHeaderBtnMainNew onClick={onAddCard}>
-              Создать новую задачу
+            <S.ButtonHeaderBtnMainNew>
+            <Link to={appRoutes.NEW_CARD}>Создать новую задачу</Link>
+
             </S.ButtonHeaderBtnMainNew>
-            <S.HeaderUserHover02 onClick={handleOpen}>
-              Ivan Ivanov
+            <S.HeaderUserHover02 onClick={handleOpenModal}>
+            {userData.name}
             </S.HeaderUserHover02>
 
             {isOpen && (
               <S.HeaderPopUserSetPopUserSet>
-                <S.PopUserSetName>Ivan Ivanov</S.PopUserSetName>
-                <S.PopUserSetMail>ivan.ivanov@gmail.com</S.PopUserSetMail>
+                <S.PopUserSetName>{userData.name}</S.PopUserSetName>
+                <S.PopUserSetMail>{userData.login}</S.PopUserSetMail>
 
                 <S.PopUserSetTheme>
                   <p>Темная тема</p>

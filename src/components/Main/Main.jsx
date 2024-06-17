@@ -2,7 +2,9 @@
 import Column from "../Column/Column";
 import * as S from "./Main.styled";
 import { Container } from "../shared.styled";
-import MainPage from "../../pages/MainPage";
+//import MainPage from "../../pages/MainPage";
+//import UserProvider from "./contex/user.jsx";
+//import TasksProvider from "./contex/tusk.jsx";
 
 
 

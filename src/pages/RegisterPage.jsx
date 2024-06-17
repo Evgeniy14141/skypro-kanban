@@ -3,7 +3,8 @@ import * as S from "./RegisterPage.styled.js";
 import { appRoutes } from "../lib/appRouts.jsx";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
-import { register } from "../api.js";
+import { registration } from "../api.js";
+//import { useUser } from "../../src/components/hooks/userUser.js";
 
 
 export default function RegisterPage () {
@@ -42,7 +43,7 @@ export default function RegisterPage () {
     }
 
     try {
-      const response = await register({
+      const response = await registration ({
         name: formValues.name,
         login: formValues.login,
         password: formValues.password,
@@ -62,6 +63,7 @@ export default function RegisterPage () {
       setError(error.message);
     }
   };
+
   return (
     <S.Wrapper>
       <S.ContainerSignup>

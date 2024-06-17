@@ -4,43 +4,39 @@ import { useEffect } from "react";
 import { Outlet } from "react-router-dom";
 import "../App.css";
 import Main from "../components/Main/Main";
+import Header from "../components/Header/Header";
+import { useUser } from "../../src/components/hooks/userUser";
+import { useTasks } from "../../src/components/hooks/userTusk";
 
-const MainPage = ({ setAuth, user, setUser }) => {
-  const [cards, setCards] = useState([]);
-  const [console, setError] = useState(null);
-  const [isLoading, setLoading] = useState(true);
 
+
+const MainPage = () => {
+  const { userData } = useUser();
+  const { setTasks } = useTasks();
+  const [getTasksError, setGetTasksError] = useState(null);
+  const [isLoadingGetTasks, setLoadingGetTasks] = useState(false);
   useEffect(() => {
-    const fetchData = async () => {
+    const fetchTasks = async () => {
       try {
-        const response = await getTodos({
-          token: user.token,
-        });
-        setCards(response.tasks);
-        {
-          /*setLoading(false);*/
-        }
+        setLoadingGetTasks(true);
+        const newTasks = await getTodos({ token: userData.token });
+        setTasks(newTasks.tasks);
       } catch (error) {
-        console.error(error);
-        setError("Ошибка при поолучении задач");
+        setGetTasksError(error.message);
       } finally {
-        setLoading(false);
+        setLoadingGetTasks(false);
       }
     };
-    fetchData();
-  }, [user.token]);
+    fetchTasks();
+  }, []);
+
   return (
     <>
       <GlobalStyle />
       <div className="wrapper">
-        <Header
-          setCards={setCards}
-          cards={cards}
-          setAuth={setAuth}
-          setUser={setUser}
-        />
-        {error && <p>{error}</p>}
-        {!error && <Main cardList={cards} isLoading={isLoading} />}
+        <Header />
+        {getTasksError  && <p>{getTasksError}</p>}
+        {!getTasksError  && <Main isLoading={isLoadingGetTasks} />}
         <Outlet />
       </div>
     </>
