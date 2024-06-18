@@ -1,25 +1,21 @@
 import * as S from "./Card.styled";
 import { Link } from "react-router-dom";
+//import { format } from "date-fns";
+//import { ru } from "date-fns/locale";
 
 const Card = ({ topic, title, date, id }) => {
-  const colorList = {
-    "Web Design": "_orange",
-    Copywriting: "_purple",
-    Research: "_green",
-  };
-
-  const colorClass = colorList[topic] || "";
+  const colorName = colorList[topic] || "orange";
 
   return (
     <S.CardsItem>
       <S.CardsCardCard>
         <S.CardGroup>
-          <S.CardTopic $topicColor={colorClass}>
+          <S.CardTopic $topicColor={`${colorName}`}>
             <S.TopicText>{topic}</S.TopicText>
           </S.CardTopic>
 
           <Link to={`/card/${id}`}>
-            <S.CardBtn>
+          <S.CardBtn>
               <S.CardBtnDiv></S.CardBtnDiv>
               <S.CardBtnDiv></S.CardBtnDiv>
               <S.CardBtnDiv></S.CardBtnDiv>
@@ -28,9 +24,9 @@ const Card = ({ topic, title, date, id }) => {
         </S.CardGroup>
 
         <S.CardContent>
-          <a href="" target="_blank">
+        <Link to={`/card/${id}`}>
             <S.CardTitle>{title}</S.CardTitle>
-          </a>
+            </Link>
 
           <S.CardDate>
             <S.CardDateSvg xmlns="http://www.w3.org/2000/svg"
@@ -61,7 +57,7 @@ const Card = ({ topic, title, date, id }) => {
               </defs>
             
             </S.CardDateSvg>
-            <S.CardCateP>{date}</S.CardCateP>
+            <S.CardCateP>{format(date, "dd.MM.yy", { locale: ru })}</S.CardCateP>
             
           </S.CardDate>
         </S.CardContent>

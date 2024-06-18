@@ -2,7 +2,7 @@ import Card from "../Card/Card";
 import * as S from "./Column.styled";
 //import { Cards } from "../Card/Card.styled";
 
-const Column = ({ title, cardList }) => {
+const Column = ({ title, taskList  }) => {
   return (
     
     
@@ -13,8 +13,13 @@ const Column = ({ title, cardList }) => {
 
       
       <S.Cards>  
-        {cardList.map(({ id, topic, title, date }) => (
-          <Card key={id} topic={topic} title={title} date={date} id={id}/>
+      {taskList.map((card) => (
+          <Card 
+          key={card._id}
+          topic={card.topic}
+          title={card.title}
+          date={card.date}
+          id={card._id} />
         ))}
       </S.Cards>
     </S.MainColumnColumn>  

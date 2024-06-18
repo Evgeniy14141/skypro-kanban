@@ -1,9 +1,19 @@
+import { useNavigate } from "react-router-dom";
 import { appRoutes } from "../../lib/appRouts";
+import { useUser } from "../hooks/userUser";
 //import { Button } from "../../components/shared.styled";
 import * as S from "./PopExit.style";
 //import { Link } from "react-router-dom";
 
-const PopExit = ({ logout }) => {
+const PopExit = () => {
+  const navigate = useNavigate();
+  const { logout } = useUser();
+  function onLogout(e) {
+    e.preventDefault();
+    logout();
+
+    navigate(appRoutes.LOGIN);
+  }
   return (
     <S.PopExit>
       <S.PopExitContainer>
@@ -13,7 +23,7 @@ const PopExit = ({ logout }) => {
           </S.PopExitTitle>
           <S.PopExitForm id="formExit" action="#">
             <S.PopExitFormGroup>
-              <S.ButtonPopExitYes $primary onClick={logout}>
+              <S.ButtonPopExitYes $primary onClick={onLogout}>
                 Да, выйти
               </S.ButtonPopExitYes>
               <S.ButtonNo to={appRoutes.MAIN}>Нет, остаться</S.ButtonNo>

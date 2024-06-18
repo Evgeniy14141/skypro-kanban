@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+//import { Link } from "react-router-dom";
 import * as S from "./Login.styled";
 import { appRoutes } from "../../lib/appRouts";
 import { useNavigate } from "react-router-dom";
@@ -7,7 +7,7 @@ import { loginUser } from "../../api";
 import { useUser } from "../../components/hooks/userUser";
 
 const Login = () => {
-  //const {  } = useUser();
+  const { setUser } = useUser();
   const navigate = useNavigate();
   const [error, setError] = useState(null);
 
@@ -43,8 +43,8 @@ const Login = () => {
       console.log("LOGIN RESPONSE", response.user);
 
       setError(null);
-      //setUser(response.user);
-      navigate(appRoutes.HOME);
+      setUser(response.user);
+      navigate(appRoutes.MAIN);
     } catch (error) {
       setError(error.message);
     }

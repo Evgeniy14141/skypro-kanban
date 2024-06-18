@@ -2,7 +2,7 @@ import { useState } from "react";
 import * as S from "./Header.styled";
 import { appRoutes } from "../../lib/appRouts";
 import { Link } from "react-router-dom";
-//import { useUser } from "../../hooks/userUser"; 
+import { useUser } from "../../components/hooks/userUser"; 
 
 const Header = () => {
 
@@ -12,6 +12,7 @@ const Header = () => {
   }
 
   const { userData } = useUser();
+ 
   return (
     <S.Header>
       <S.Container>
@@ -46,7 +47,7 @@ const Header = () => {
                   <p>Темная тема</p>
                   <S.InputCheckbox />
                 </S.PopUserSetTheme>
-                <S.ButtonHover03>
+                <S.ButtonHover03 >
                   <Link to={appRoutes.EXIT} id="btnExit" type="submit">
                     Выйти
                   </Link>

@@ -7,6 +7,7 @@ import Main from "../components/Main/Main";
 import Header from "../components/Header/Header";
 import { useUser } from "../../src/components/hooks/userUser";
 import { useTasks } from "../../src/components/hooks/userTusk";
+import { GlobalStyle } from "../global.styled";
 
 
 
