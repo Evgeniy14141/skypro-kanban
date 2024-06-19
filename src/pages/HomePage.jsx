@@ -5,11 +5,11 @@ import CardPage from "./CardPage";
 import MainPage from "./MainPage";
 import NotFoundPage from "./NotFoundPage";
 import RegisterPage from "./RegisterPage";
-import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+//import { useState } from "react";
+//import { useNavigate } from "react-router-dom";
 import { appRoutes } from "../lib/appRouts";
 import ExitPage from "./ExitPage";
-import PopNewCard from "../components/PopNewCard/PopNewCard";
+import PopNewCard from "../components/PopNewCard/PopNewCard.jsx";
 
 function AppHome() {
     //const isAuth = true;

@@ -1,16 +1,17 @@
 import Calendar from "../Calendar/Calendar";
+import * as S from "./PopNewCard";
+import { appRoutes } from "../../lib/appRouts";
 
 const PopNewCard = () => {
   return (
-    <div className="pop-new-card" id="popNewCard">
-      <div className="pop-new-card__container">
-        <div className="pop-new-card__block">
-          <div className="pop-new-card__content">
-            <h3 className="pop-new-card__ttl">Создание задачи</h3>
-            <a href="#" className="pop-new-card__close">
-              &#10006;
-            </a>
-            <div className="pop-new-card__wrap">
+    <S.PopNewCard id="popNewCard">
+      <S.PopNewCardContainer>
+        <S.PopNewCardBlock>
+          <S.PopNewCardContent>
+            <S.PopNewCardTtl>Создание задачи</S.PopNewCardTtl>
+
+            <S.PopNewCardClose to={appRoutes.MAIN}>&#10006;</S.PopNewCardClose>
+            <S.PopNewCardWrap>
               <form
                 className="pop-new-card__form form-new"
                 id="formNewCard"
@@ -42,7 +43,7 @@ const PopNewCard = () => {
                 </div>
               </form>
               <Calendar />
-            </div>
+            </S.PopNewCardWrap>
             <div className="pop-new-card__categories categories">
               <p className="categories__p subttl">Категория</p>
               <div className="categories__themes">
@@ -60,10 +61,10 @@ const PopNewCard = () => {
             <button className="form-new__create _hover01" id="btnCreate">
               Создать задачу
             </button>
-          </div>
-        </div>
-      </div>
-    </div>
+          </S.PopNewCardContent>
+        </S.PopNewCardBlock>
+      </S.PopNewCardContainer>
+    </S.PopNewCard>
   );
 };
 
