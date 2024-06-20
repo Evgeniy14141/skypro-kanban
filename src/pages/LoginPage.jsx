@@ -1,12 +1,12 @@
 import Login from "../components/Login/Login";
 //import { GlobalStyle } from "../global.styled";
 
-export const LoginPage = ({ login }) => {
+const LoginPage = () => {
     return (
         <>
         {/*<GlobalStyle />*/}
         <div className="wrapper">
-            <Login login = {login}/>
+        <Login />
         </div>
         </>
     );

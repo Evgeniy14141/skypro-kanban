@@ -1,28 +1,46 @@
-import "../App.css";
-import Header from "../components/Header/Header";
-import Main from "../components/Main/Main";
+import { getTodos } from "../api";
 import { useState } from "react";
-import { cardList } from "../data";
-import { GlobalStyle } from "../global.styled";
+import { useEffect } from "react";
 import { Outlet } from "react-router-dom";
+import "../App.css";
+import Main from "../components/Main/Main";
+import Header from "../components/Header/Header";
+import { useUser } from "../../src/components/hooks/userUser";
+import { useTasks } from "../../src/components/hooks/userTusk";
+import { GlobalStyle } from "../global.styled";
 
 
 
+const MainPage = () => {
+  const { userData } = useUser();
+  const { setTasks } = useTasks();
+  const [getTasksError, setGetTasksError] = useState(null);
+  const [isLoadingGetTasks, setLoadingGetTasks] = useState(false);
+  useEffect(() => {
+    const fetchTasks = async () => {
+      try {
+        setLoadingGetTasks(true);
+        const newTasks = await getTodos({ token: userData.token });
+        setTasks(newTasks.tasks);
+      } catch (error) {
+        setGetTasksError(error.message);
+      } finally {
+        setLoadingGetTasks(false);
+      }
+    };
+    fetchTasks();
+  }, []);
 
-export default function MainPage() {
-  const [cards, setCards] = useState(cardList);
   return (
     <>
       <GlobalStyle />
       <div className="wrapper">
+        <Header />
+        {getTasksError  && <p>{getTasksError}</p>}
+        {!getTasksError  && <Main isLoading={isLoadingGetTasks} />}
         <Outlet />
-        <Header setCards={setCards} cards={cards} />
-        <Main cardList={cards} />
       </div>
     </>
   );
-}
-
-
-
-
+};
+export default MainPage;
