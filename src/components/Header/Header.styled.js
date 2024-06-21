@@ -78,12 +78,18 @@ export const ButtonHeaderBtnMainNew = styled.button`
   letter-spacing: -0.14px;
   color: #ffffff;
   margin-right: 10px;
-  ${hover01};
+  /* &:hover,
   &:hover a {
     color: inherit;
     background-color: #33399b;
     color: #ffffff;
-  }
+  } */
+  ${hover01}
+  /* &:hover a {
+    color: inherit;
+    background-color: #33399b;
+    color: #ffffff;
+  }  */
 `;
 
 export const HeaderPopUserSetPopUserSet = styled.div`
