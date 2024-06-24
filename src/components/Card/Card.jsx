@@ -33,7 +33,8 @@ const Card = ({ topic, title, date, id }) => {
           </a>
 
           <S.CardDate>
-            <S.CardDateSvg xmlns="http://www.w3.org/2000/svg"
+            <S.CardDateSvg
+              xmlns="http://www.w3.org/2000/svg"
               width="13"
               height="13"
               viewBox="0 0 13 13"
@@ -59,10 +60,8 @@ const Card = ({ topic, title, date, id }) => {
                   <rect width="13" height="13" fill="white" />
                 </clipPath>
               </defs>
-            
             </S.CardDateSvg>
             <S.CardCateP>{date}</S.CardCateP>
-            
           </S.CardDate>
         </S.CardContent>
       </S.CardsCardCard>

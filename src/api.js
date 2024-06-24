@@ -18,7 +18,6 @@ export async function getTodos({ token }) {
 }
 
 //  регистрация
-
 export async function registration({ login, name, password }) {
   const response = await fetch(registerHost, {
     method: "POST",
@@ -35,8 +34,6 @@ export async function registration({ login, name, password }) {
 
   return data;
 }
-
-
 
 // залогониться
 export async function loginUser({ login, password }) {
@@ -59,7 +56,6 @@ export async function loginUser({ login, password }) {
   const data = await response.json();
   return data;
 }
-
 
 //добавить
 export async function addTask({
@@ -92,11 +88,7 @@ export async function addTask({
   return data;
 }
 
-
-
-
 // Редактирование задачи
-
 export async function editTodo({
   title,
   status,
@@ -142,10 +134,7 @@ export async function deleteTodo({ id, token }) {
   return data;
 }
 
-
-
 // Удаление задачи
-
 export async function deleteTask({ id, token }) {
   const response = await fetch(`${host}/${id}`, {
     method: "DELETE",

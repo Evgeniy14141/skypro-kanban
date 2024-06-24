@@ -1,4 +1,3 @@
-//import { Link } from "react-router-dom";
 import * as S from "./Login.styled";
 import { appRoutes } from "../../lib/appRouts";
 import { useNavigate } from "react-router-dom";
@@ -76,7 +75,9 @@ const Login = () => {
               ></S.ModalInput>
 
               {error && <p>{error}</p>}
-              <S.ModalButtonEnter id="btnEnter" type="submit" onClick={onLogin}>Войти</S.ModalButtonEnter>
+              <S.ModalButtonEnter id="btnEnter" type="submit" onClick={onLogin}>
+                Войти
+              </S.ModalButtonEnter>
               <S.ModalFormGroup>
                 <S.ModalFormText>Нужно зарегистрироваться?</S.ModalFormText>
                 <S.ModalFormLink to={appRoutes.REGISTER}>

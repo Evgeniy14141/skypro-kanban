@@ -1,5 +1,5 @@
 export const categoryColors = {
-    "Web Design": "orange",
-    Research: "green",
-    Copywriting: "purple",
-  };
+  "Web Design": "orange",
+  Research: "green",
+  Copywriting: "purple",
+};

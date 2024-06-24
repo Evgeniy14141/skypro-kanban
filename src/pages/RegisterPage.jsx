@@ -1,13 +1,10 @@
 import * as S from "./RegisterPage.styled.js";
-//import { Link } from "react-router-dom";
 import { appRoutes } from "../lib/appRouts.jsx";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { registration } from "../api.js";
-//import { useUser } from "../../src/components/hooks/userUser.js";
 
-
-export default function RegisterPage () {
+export default function RegisterPage() {
   const navigate = useNavigate();
 
   const [formValues, setFormValues] = useState({
@@ -20,8 +17,10 @@ export default function RegisterPage () {
 
   const onInputChange = (event) => {
     const { name, value } = event.target; // Извлекаем имя поля и его значение
-    setFormValues({ ...formValues, // Копируем текущие данные из состояния
-      [name]: value }); // Обновляем нужное поле
+    setFormValues({
+      ...formValues, // Копируем текущие данные из состояния
+      [name]: value,
+    }); // Обновляем нужное поле
   };
 
   const onRegister = async (event) => {
@@ -43,13 +42,13 @@ export default function RegisterPage () {
     }
 
     try {
-      const response = await registration ({
+      const response = await registration({
         name: formValues.name,
         login: formValues.login,
         password: formValues.password,
       });
 
-      console.log ("REGISTER RESPONSE", response);
+      console.log("REGISTER RESPONSE", response);
 
       //setAuth(true);
       //setUser(response.user);
@@ -116,6 +115,6 @@ export default function RegisterPage () {
       </S.ContainerSignup>
     </S.Wrapper>
   );
-};
+}
 
 //export default RegisterPage;

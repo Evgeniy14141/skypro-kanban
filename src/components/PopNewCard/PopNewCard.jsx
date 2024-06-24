@@ -29,7 +29,7 @@ const PopNewCard = () => {
   });
 
   const [error, setError] = useState(null);
-  
+
   const createTask = async (event) => {
     event.preventDefault();
 
@@ -55,7 +55,6 @@ const PopNewCard = () => {
     } catch (error) {
       console.log(error.message);
       setError("Что-то пошло не так. Попробуйте еще раз!");
-
     } finally {
       setIsLoading(false);
     }
@@ -138,16 +137,13 @@ const PopNewCard = () => {
             </S.Categories>
             {error && <S.ErrorMessage>{error}</S.ErrorMessage>}
 
-            {/* <S.FormNewCreateButton id="btnCreate" onClick={createTask}>
-              Создать задачу
-            </S.FormNewCreateButton> */}
             {!isLoading && (
               <S.FormNewCreateButton onClick={createTask}>
                 Создать задачу
               </S.FormNewCreateButton>
             )}
             {isLoading && (
-              <S.FormNewCreateButton disabled >
+              <S.FormNewCreateButton disabled>
                 Создаётся...
               </S.FormNewCreateButton>
             )}

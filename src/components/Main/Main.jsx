@@ -1,14 +1,8 @@
-//import { useEffect, useState } from "react";
 import Column from "../Column/Column";
 import * as S from "./Main.styled";
 import { Container } from "../shared.styled";
-//import MainPage from "../../pages/MainPage";
-//import UserProvider from "./contex/user.jsx";
+
 import { useTasks } from "../../components/hooks/userTusk";
-
-
-
-
 
 export const statusList = [
   "Без статуса",
@@ -18,35 +12,27 @@ export const statusList = [
   "Готово",
 ];
 
-
-
 const Main = ({ isLoading }) => {
-   const { tasks } = useTasks();
-  /*const [isLoading, setLoading] = useState(true);
-  useEffect(() => {
-    setTasks("Ответ от сервера")
-  }, []); */
-
+  const { tasks } = useTasks();
 
   return (
-    
-      <S.Main>
-        <Container>
-          <S.MainBlock>
-            <S.MainContent>
-            {isLoading === true && (<p>Идет загрузка...</p>)}
-            {isLoading === false && statusList.map((status) => (
-              <Column
-                key={status}
-                title={status}
-                taskList={tasks.filter((card) => card.status === status)}
-              />
-            ))}
-            </S.MainContent>
-          </S.MainBlock>
-        </Container>
-      </S.Main>
-    
+    <S.Main>
+      <Container>
+        <S.MainBlock>
+          <S.MainContent>
+            {isLoading === true && <p>Идет загрузка...</p>}
+            {isLoading === false &&
+              statusList.map((status) => (
+                <Column
+                  key={status}
+                  title={status}
+                  taskList={tasks.filter((card) => card.status === status)}
+                />
+              ))}
+          </S.MainContent>
+        </S.MainBlock>
+      </Container>
+    </S.Main>
   );
 };
 

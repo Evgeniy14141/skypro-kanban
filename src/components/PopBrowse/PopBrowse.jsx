@@ -9,11 +9,7 @@ import { useTasks } from "../../components/hooks/userTusk";
 import { categoryColors } from "../../colors";
 import { statusList } from "../Main/Main";
 
-
-
-
 const PopBrowse = () => {
-
   const { id } = useParams();
   const { userData } = useUser();
   const { tasks, setTasks } = useTasks();
@@ -26,23 +22,22 @@ const PopBrowse = () => {
 
   const foundTask = tasks.find((e) => e._id === id);
   const [changeTask, setChangeTask] = useState({
-    
-    title:"",
-    topic:"",
+    title: "",
+    topic: "",
     status: "",
     description: "",
-    date: new Date(),});
+    date: new Date(),
+  });
 
   useEffect(() => {
     if (foundTask) {
       setChangeTask(foundTask);
       return setIsStatus(foundTask.status);
-    } 
-    getTodos({ token: userData.token })
-    .then((res) => {
-      const task = res.tasks.find ((e) => e._id === id);
+    }
+    getTodos({ token: userData.token }).then((res) => {
+      const task = res.tasks.find((e) => e._id === id);
       setChangeTask(task);
-    })
+    });
   }, [foundTask]);
 
   const themeColor = foundTask ? categoryColors[foundTask.topic] : "";
@@ -158,7 +153,7 @@ const PopBrowse = () => {
                   ></S.FormBrowseArea>
                 </S.FormBrowseBlock>
               </S.PopBrowseForm>
-              {!isEdit && <Calendar selected={(changeTask?.date)} />}
+              {!isEdit && <Calendar selected={changeTask?.date} />}
               {isEdit && (
                 <Calendar
                   selected={new Date(changeTask?.date)}
@@ -229,7 +224,7 @@ const PopBrowse = () => {
                     )}
                   </S.ButtonLink>
                 </S.ButtonGroup>
-                <S.ButtonLinkClose >
+                <S.ButtonLinkClose to={appRoutes.MAIN}>
                   <S.ButtonClose>Закрыть</S.ButtonClose>
                 </S.ButtonLinkClose>
               </S.PopBrowseButtonEdit>

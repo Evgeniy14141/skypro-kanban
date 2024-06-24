@@ -10,22 +10,21 @@ import ExitPage from "./ExitPage";
 import PopNewCard from "../components/PopNewCard/PopNewCard.jsx";
 
 function AppHome() {
-  
-    return (
-      <Routes>
-        <Route path={appRoutes.LOGIN} element={<LoginPage />} />
-        <Route path={appRoutes.REGISTER} element={<RegisterPage />} />
-        <Route element={<PrivateRoute />}>
-          <Route path={appRoutes.MAIN} element={<MainPage />}>
-            <Route path={appRoutes.CARD} element={<CardPage />} />
-            <Route path={appRoutes.NEW_CARD} element={<PopNewCard />} />
-            <Route path={appRoutes.EXIT} element={<ExitPage />} /> 
-          </Route>
+  return (
+    <Routes>
+      <Route path={appRoutes.LOGIN} element={<LoginPage />} />
+      <Route path={appRoutes.REGISTER} element={<RegisterPage />} />
+      <Route element={<PrivateRoute />}>
+        <Route path={appRoutes.MAIN} element={<MainPage />}>
+          <Route path={appRoutes.CARD} element={<CardPage />} />
+          <Route path={appRoutes.NEW_CARD} element={<PopNewCard />} />
+          <Route path={appRoutes.EXIT} element={<ExitPage />} />
         </Route>
-  
-        <Route path={appRoutes.NOT_FOUND} element={<NotFoundPage />} />
-      </Routes>
-    );
-  }
-  
-  export default AppHome;
+      </Route>
+
+      <Route path={appRoutes.NOT_FOUND} element={<NotFoundPage />} />
+    </Routes>
+  );
+}
+
+export default AppHome;

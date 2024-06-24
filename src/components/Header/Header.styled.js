@@ -1,6 +1,5 @@
 import styled from "styled-components";
 import { hover01 } from "../shared.styled";
-//import { Link } from "react-router-dom";
 
 export const Header = styled.header`
   width: 100%;
