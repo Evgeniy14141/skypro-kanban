@@ -8,8 +8,7 @@ import Header from "../components/Header/Header";
 import { useUser } from "../../src/components/hooks/userUser";
 import { useTasks } from "../../src/components/hooks/userTusk";
 import { GlobalStyle } from "../global.styled";
-
-
+import * as S from "../components/Login/Login.styled";
 
 const MainPage = () => {
   const { userData } = useUser();
@@ -34,12 +33,12 @@ const MainPage = () => {
   return (
     <>
       <GlobalStyle />
-      <div className="wrapper">
+      <S.Wrapper>
         <Header />
-        {getTasksError  && <p>{getTasksError}</p>}
-        {!getTasksError  && <Main isLoading={isLoadingGetTasks} />}
+        {getTasksError && <p>{getTasksError}</p>}
+        {!getTasksError && <Main isLoading={isLoadingGetTasks} />}
         <Outlet />
-      </div>
+      </S.Wrapper>
     </>
   );
 };

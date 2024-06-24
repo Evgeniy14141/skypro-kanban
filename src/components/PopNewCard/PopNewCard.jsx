@@ -3,15 +3,15 @@ import * as S from "./PopNewCard";
 import { appRoutes } from "../../lib/appRouts";
 import { useState } from "react";
 import { useUser } from "..//hooks/userUser";
-import { useTasks } from "..//hooks/userTusk"; 
+import { useTasks } from "..//hooks/userTusk";
 import { addTask } from "../../api";
 import { useNavigate } from "react-router-dom";
-
 
 const PopNewCard = () => {
   const { userData } = useUser();
   const { setTasks } = useTasks();
   const navigate = useNavigate();
+  const [isLoading, setIsLoading] = useState(false);
 
   const [activeTheme, setActiveTheme] = useState("Research");
 
@@ -29,7 +29,7 @@ const PopNewCard = () => {
   });
 
   const [error, setError] = useState(null);
-
+  
   const createTask = async (event) => {
     event.preventDefault();
 
@@ -37,6 +37,8 @@ const PopNewCard = () => {
       setError("Заполните все поля!");
       return;
     }
+
+    setIsLoading(true);
 
     try {
       const response = await addTask({
@@ -49,10 +51,13 @@ const PopNewCard = () => {
       });
 
       setTasks(response.tasks);
-      navigate(appRoutes.HOME);
+      navigate(appRoutes.MAIN);
     } catch (error) {
       console.log(error.message);
       setError("Что-то пошло не так. Попробуйте еще раз!");
+
+    } finally {
+      setIsLoading(false);
     }
   };
 
@@ -132,9 +137,20 @@ const PopNewCard = () => {
               </S.CategoriesThemes>
             </S.Categories>
             {error && <S.ErrorMessage>{error}</S.ErrorMessage>}
-            <S.FormNewCreateButton id="btnCreate" onClick={createTask}>
+
+            {/* <S.FormNewCreateButton id="btnCreate" onClick={createTask}>
               Создать задачу
-            </S.FormNewCreateButton>
+            </S.FormNewCreateButton> */}
+            {!isLoading && (
+              <S.FormNewCreateButton onClick={createTask}>
+                Создать задачу
+              </S.FormNewCreateButton>
+            )}
+            {isLoading && (
+              <S.FormNewCreateButton disabled >
+                Создаётся...
+              </S.FormNewCreateButton>
+            )}
           </S.PopNewCardContent>
         </S.PopNewCardBlock>
       </S.PopNewCardContainer>

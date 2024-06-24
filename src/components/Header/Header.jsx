@@ -32,6 +32,7 @@ const Header = () => {
             <S.ButtonHeaderBtnMainNew>
               <Link to={appRoutes.NEW_CARD}>Создать новую задачу</Link>
             </S.ButtonHeaderBtnMainNew>
+
             <S.HeaderUserHover02 onClick={handleOpenModal}>
               {userData.name}
             </S.HeaderUserHover02>

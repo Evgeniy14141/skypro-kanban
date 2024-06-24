@@ -1,4 +1,4 @@
-import PopBrowse from "../components/PopBrowse/PopBrowse";
+import PopBrowse from "../components/PopBrowse/PopBrowse.jsx";
 
 const CardPage = () => {
     return (

@@ -10,7 +10,7 @@ import { useTasks } from "../../components/hooks/userTusk";
 
 
 
-const statusList = [
+export const statusList = [
   "Без статуса",
   "Нужно сделать",
   "В работе",
@@ -21,7 +21,7 @@ const statusList = [
 
 
 const Main = ({ isLoading }) => {
-   const { tasks, setTasks } = useTasks();
+   const { tasks } = useTasks();
   /*const [isLoading, setLoading] = useState(true);
   useEffect(() => {
     setTasks("Ответ от сервера")

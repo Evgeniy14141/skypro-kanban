@@ -5,31 +5,11 @@ import CardPage from "./CardPage";
 import MainPage from "./MainPage";
 import NotFoundPage from "./NotFoundPage";
 import RegisterPage from "./RegisterPage";
-//import { useState } from "react";
-//import { useNavigate } from "react-router-dom";
 import { appRoutes } from "../lib/appRouts";
 import ExitPage from "./ExitPage";
 import PopNewCard from "../components/PopNewCard/PopNewCard.jsx";
 
 function AppHome() {
-    //const isAuth = true;
-  
-    /* const [isAuth, setAuth] = useState(true);
-  
-    const navigate = useNavigate(); */
-  
-    /*const login = (e) => {
-      e.preventDefault();
-      setAuth(true);
-      navigate(appRoutes.MAIN);
-    };
-  */
-    /* const logout = (e) => {
-      console.log(1);
-      e.preventDefault();
-      setAuth(true);
-      navigate(appRoutes.LOGIN);
-    }; */
   
     return (
       <Routes>
