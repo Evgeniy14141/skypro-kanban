@@ -1,9 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import { appRoutes } from "../../lib/appRouts";
 import { useUser } from "../hooks/userUser";
-//import { Button } from "../../components/shared.styled";
 import * as S from "./PopExit.style";
-//import { Link } from "react-router-dom";
 
 const PopExit = () => {
   const navigate = useNavigate();

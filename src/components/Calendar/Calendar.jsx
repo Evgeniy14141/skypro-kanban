@@ -1,102 +1,35 @@
 import * as S from "./Calendar.styled";
+import { DayPicker } from "react-day-picker";
+import "react-day-picker/dist/style.css";
+import { format } from "date-fns";
+import { ru } from "date-fns/locale";
 
-const Calendar = () => {
+const Calendar = ({ selected, setSelected }) => {
   return (
-    <S.PopNewCardCalendarCalendar>
-      <S.CalendarTtlSubttl>Даты</S.CalendarTtlSubttl>
-
-      <S.CalendarBlock>
-        <S.CalendarNav>
-          <S.CalendarMonth>Сентябрь 2023</S.CalendarMonth>
-
-          <S.NavActions>
-            <S.NavAction data-action="prev">
-              <S.NavActionSvg
-                xmlns="http://www.w3.org/2000/svg"
-                width="6"
-                height="11"
-                viewBox="0 0 6 11"
-              >
-                <path d="M5.72945 1.95273C6.09018 1.62041 6.09018 1.0833 5.72945 0.750969C5.36622 0.416344 4.7754 0.416344 4.41218 0.750969L0.528487 4.32883C-0.176162 4.97799 -0.176162 6.02201 0.528487 6.67117L4.41217 10.249C4.7754 10.5837 5.36622 10.5837 5.72945 10.249C6.09018 9.9167 6.09018 9.37959 5.72945 9.04727L1.87897 5.5L5.72945 1.95273Z" />
-              </S.NavActionSvg>
-            </S.NavAction>
-            <S.NavAction data-action="next">
-              <S.NavActionSvg
-                xmlns="http://www.w3.org/2000/svg"
-                width="6"
-                height="11"
-                viewBox="0 0 6 11"
-              >
-                <path d="M0.27055 9.04727C-0.0901833 9.37959 -0.0901832 9.9167 0.27055 10.249C0.633779 10.5837 1.2246 10.5837 1.58783 10.249L5.47151 6.67117C6.17616 6.02201 6.17616 4.97799 5.47151 4.32883L1.58782 0.75097C1.2246 0.416344 0.633778 0.416344 0.270549 0.75097C-0.0901831 1.0833 -0.090184 1.62041 0.270549 1.95273L4.12103 5.5L0.27055 9.04727Z" />
-              </S.NavActionSvg>
-            </S.NavAction>
-          </S.NavActions>
-        </S.CalendarNav>
-
-        <S.CalendarContent>
-          <S.CalendarDaysNames>
-            <S.CalendarDayName>пн</S.CalendarDayName>
-            <S.CalendarDayName>вт</S.CalendarDayName>
-            <S.CalendarDayName>ср</S.CalendarDayName>
-            <S.CalendarDayName>чт</S.CalendarDayName>
-            <S.CalendarDayName>пт</S.CalendarDayName>
-            <S.CalendarDayName>сб</S.CalendarDayName>
-            <S.CalendarDayName>вс</S.CalendarDayName>
-          </S.CalendarDaysNames>
-
-          <S.CalendarCells>
-            <S.CalendarCellOtherMonth>28</S.CalendarCellOtherMonth>
-            <S.CalendarCellOtherMonth>29</S.CalendarCellOtherMonth>
-            <S.CalendarCellOtherMonth>30</S.CalendarCellOtherMonth>
-
-            <S.CalendarCellCellDay>31</S.CalendarCellCellDay>
-            <S.CalendarCellCellDay>1</S.CalendarCellCellDay>
-            <S.CalendarCellCellDay>2</S.CalendarCellCellDay>
-            <S.CalendarCellCellDay>3</S.CalendarCellCellDay>
-            <S.CalendarCellCellDay>4</S.CalendarCellCellDay>
-            <S.CalendarCellCellDay>5</S.CalendarCellCellDay>
-            <S.CalendarCellCellDay>6</S.CalendarCellCellDay>
-            <S.CalendarCellCellDay>7</S.CalendarCellCellDay>
-            <S.CalendarCellCellDay>8</S.CalendarCellCellDay>
-
-            <S.CalendarCellCellDayWeekendActiveDay>
-              9
-            </S.CalendarCellCellDayWeekendActiveDay>
-
-            <S.CalendarCellCellDay>10</S.CalendarCellCellDay>
-            <S.CalendarCellCellDay>11</S.CalendarCellCellDay>
-            <S.CalendarCellCellDay>12</S.CalendarCellCellDay>
-            <S.CalendarCellCellDay>13</S.CalendarCellCellDay>
-            <S.CalendarCellCellDay>14</S.CalendarCellCellDay>
-            <S.CalendarCellCellDay>15</S.CalendarCellCellDay>
-            <S.CalendarCellCellDay>16</S.CalendarCellCellDay>
-            <S.CalendarCellCellDay>17</S.CalendarCellCellDay>
-            <S.CalendarCellCellDay>18</S.CalendarCellCellDay>
-            <S.CalendarCellCellDay>19</S.CalendarCellCellDay>
-            <S.CalendarCellCellDay>20</S.CalendarCellCellDay>
-            <S.CalendarCellCellDay>21</S.CalendarCellCellDay>
-            <S.CalendarCellCellDay>22</S.CalendarCellCellDay>
-            <S.CalendarCellCellDay>23</S.CalendarCellCellDay>
-            <S.CalendarCellCellDay>24</S.CalendarCellCellDay>
-            <S.CalendarCellCellDay>25</S.CalendarCellCellDay>
-            <S.CalendarCellCellDay>26</S.CalendarCellCellDay>
-            <S.CalendarCellCellDay>27</S.CalendarCellCellDay>
-            <S.CalendarCellCellDay>28</S.CalendarCellCellDay>
-            <S.CalendarCellCellDay>29</S.CalendarCellCellDay>
-            <S.CalendarCellCellDay>30</S.CalendarCellCellDay>
-            <S.CalendarCellCellDay>1</S.CalendarCellCellDay>
-          </S.CalendarCells>
-        </S.CalendarContent>
-
-        <input type="hidden" id="datepick_value" value="08.09.2023" />
-
-        <S.CalendarPeriod>
-          <S.CalendarPDateEnd>
-            Срок исполнения: <S.DateControl>09.09.23</S.DateControl> 
-          </S.CalendarPDateEnd>
-        </S.CalendarPeriod>
-      </S.CalendarBlock>
-    </S.PopNewCardCalendarCalendar>
+    <>
+      <S.Calendar>
+        <S.CalendarTitle>Даты</S.CalendarTitle>
+        <DayPicker
+          mode="single"
+          selected={selected}
+          onSelect={setSelected}
+          locale={ru}
+        />
+        {!selected && (
+          <S.CalendarTitleBottom>
+            Выберите срок исполнения
+          </S.CalendarTitleBottom>
+        )}
+        {selected && (
+          <S.CalendarTitleBottom>
+            Срок исполнения:
+            <S.FormatDate>
+              {format(selected, "dd.MM.yy", { locale: ru })}
+            </S.FormatDate>
+          </S.CalendarTitleBottom>
+        )}
+      </S.Calendar>
+    </>
   );
 };
 

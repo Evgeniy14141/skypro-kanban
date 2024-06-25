@@ -1,15 +1,14 @@
 import Login from "../components/Login/Login";
-//import { GlobalStyle } from "../global.styled";
+import * as S from "../components/Login/Login.styled";
 
 const LoginPage = () => {
-    return (
-        <>
-        {/*<GlobalStyle />*/}
-        <div className="wrapper">
+  return (
+    <>
+      <S.Wrapper>
         <Login />
-        </div>
-        </>
-    );
+      </S.Wrapper>
+    </>
+  );
 };
 
 export default LoginPage;

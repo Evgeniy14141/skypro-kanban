@@ -1,7 +1,6 @@
 import styled from "styled-components";
 import { hover01 } from "../components/shared.styled";
 import { Link } from "react-router-dom";
-//import { Link } from "react-router-dom";
 
 export const Wrapper = styled.div`
   width: 100%;
@@ -144,12 +143,3 @@ export const ModalFormLink = styled(Link)`
   letter-spacing: -0.14px;
   text-decoration: underline;
 `;
-/*
-export const Link = styled(Link)`
-  color: rgba(148, 166, 190, 0.4);
-  font-size: 14px;
-  font-weight: 400;
-  line-height: 150%;
-  letter-spacing: -0.14px;
-  text-decoration: underline;
-`;*/

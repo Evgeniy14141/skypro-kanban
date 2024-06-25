@@ -1,62 +1,51 @@
 import { useState } from "react";
 import * as S from "./Header.styled";
 import { appRoutes } from "../../lib/appRouts";
-import { Link } from "react-router-dom";
-import { useUser } from "../../components/hooks/userUser"; 
+import { useUser } from "../../components/hooks/userUser";
+import { Container } from "../shared.styled";
 
 const Header = () => {
-
   const [isOpen, setOpen] = useState(false);
+
   function handleOpenModal() {
     setOpen((prevState) => !prevState);
   }
 
   const { userData } = useUser();
- 
   return (
     <S.Header>
-      <S.Container>
+      <Container>
         <S.HeaderBlock>
-          <S.HeaderLogoShowLight>
-            <S.Link href="" target="_self">
+          <S.HeaderLogoLight>
+            <S.LogogLink href="" target="_self">
               <S.HeaderLogoImage src="images/logo.png" alt="logo" />
-            </S.Link>
-          </S.HeaderLogoShowLight>
-
+            </S.LogogLink>
+          </S.HeaderLogoLight>
           <S.HeaderLogoDark>
-            <S.Link href="" target="_self">
+            <S.LogogLink href="" target="_self">
               <S.HeaderLogoImage src="images/logo_dark.png" alt="logo" />
-            </S.Link>
+            </S.LogogLink>
           </S.HeaderLogoDark>
-
           <S.HeaderNav>
-            <S.ButtonHeaderBtnMainNew>
-            <Link to={appRoutes.NEW_CARD}>Создать новую задачу</Link>
-
-            </S.ButtonHeaderBtnMainNew>
-            <S.HeaderUserHover02 onClick={handleOpenModal}>
-            {userData.name}
-            </S.HeaderUserHover02>
-
+            <S.HeaderButtonMainNew to={appRoutes.NEW_CARD}>
+              Создать новую задачу
+            </S.HeaderButtonMainNew>
+            <S.HeaderUser onClick={handleOpenModal}>
+              {userData.name}
+            </S.HeaderUser>
             {isOpen && (
-              <S.HeaderPopUserSetPopUserSet>
+              <S.PopUserSet>
                 <S.PopUserSetName>{userData.name}</S.PopUserSetName>
                 <S.PopUserSetMail>{userData.login}</S.PopUserSetMail>
 
-                <S.PopUserSetTheme>
-                  <p>Темная тема</p>
-                  <S.InputCheckbox />
-                </S.PopUserSetTheme>
-                <S.ButtonHover03 >
-                  <Link to={appRoutes.EXIT} id="btnExit" type="submit">
-                    Выйти
-                  </Link>
-                </S.ButtonHover03>
-              </S.HeaderPopUserSetPopUserSet>
+                <S.ExitLink to={appRoutes.EXIT}>
+                  <S.Button>Выйти</S.Button>
+                </S.ExitLink>
+              </S.PopUserSet>
             )}
           </S.HeaderNav>
         </S.HeaderBlock>
-      </S.Container>
+      </Container>
     </S.Header>
   );
 };
