@@ -1,17 +1,12 @@
 import styled from "styled-components";
-import { hover01 } from "../shared.styled";
+import * as S from "../shared.styled";
+import { Link } from "react-router-dom";
+import { breakpoints } from "../../lib/breakpoints";
 
 export const Header = styled.header`
   width: 100%;
   margin: 0 auto;
   background-color: #ffffff;
-`;
-
-export const Container = styled.div`
-  max-width: 1260px;
-  width: 100%;
-  margin: 0 auto;
-  padding: 0 30px;
 `;
 
 export const HeaderBlock = styled.div`
@@ -26,7 +21,7 @@ export const HeaderBlock = styled.div`
   padding: 0 10px;
 `;
 
-export const HeaderLogoShowLight = styled.div`
+export const HeaderLogoLight = styled.div`
   width: 85px;
 `;
 
@@ -34,7 +29,52 @@ export const HeaderLogoImage = styled.img`
   width: 85px;
 `;
 
-export const HeaderUserHover02 = styled.div`
+export const HeaderLogoDark = styled.div`
+  width: 85px;
+  display: none;
+`;
+
+export const LogogLink = styled.a``;
+
+export const HeaderNav = styled.nav`
+  max-width: 290px;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+`;
+
+export const HeaderButtonMainNew = styled(Link)`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 178px;
+  height: 30px;
+  border-radius: 4px;
+  background-color: #565eef;
+  color: #ffffff;
+  border: none;
+  font-size: 14px;
+  line-height: 1;
+  font-weight: 500;
+  margin-right: 20px;
+  cursor: pointer;
+  outline: none;
+  ${S.hover01}
+  @media screen and (max-width: ${breakpoints.md}px) {
+    z-index: 3;
+    position: fixed;
+    left: 16px;
+    bottom: 30px;
+    top: auto;
+    width: calc(100vw - 32px);
+    height: 40px;
+    border-radius: 4px;
+    margin-right: 0;
+  }
+`;
+
+export const HeaderUser = styled.button`
   height: 20px;
   display: flex;
   flex-wrap: nowrap;
@@ -44,9 +84,9 @@ export const HeaderUserHover02 = styled.div`
   line-height: 20px;
   color: #565eef;
   cursor: pointer;
-  &:hover {
-    color: #33399b;
-  }
+  background: transparent;
+  outline: none;
+  border: none;
   &::after {
     content: "";
     display: block;
@@ -59,39 +99,10 @@ export const HeaderUserHover02 = styled.div`
     margin: -6px 0 0 5px;
     padding: 0;
   }
+  ${S.hover02}
 `;
 
-export const ButtonHeaderBtnMainNew = styled.button`
-  width: 178px;
-  height: 30px;
-  background-color: #565eef;
-  border-radius: 4px;
-  border: none;
-  outline: none;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 14px;
-  line-height: 21px;
-  font-weight: 500;
-  letter-spacing: -0.14px;
-  color: #ffffff;
-  margin-right: 10px;
-  &:hover,
-  &:hover a {
-    color: inherit;
-    background-color: #33399b;
-    color: #ffffff;
-  }
-  ${hover01}
-  &:hover a {
-    color: inherit;
-    background-color: #33399b;
-    color: #ffffff;
-  }
-`;
-
-export const HeaderPopUserSetPopUserSet = styled.div`
+export const PopUserSet = styled.div`
   display: block;
   position: absolute;
   top: 61px;
@@ -108,14 +119,6 @@ export const HeaderPopUserSetPopUserSet = styled.div`
   &:target {
     display: block;
   }
-`;
-
-export const HeaderNav = styled.nav`
-  max-width: 290px;
-  padding: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
 `;
 
 export const PopUserSetName = styled.p`
@@ -135,66 +138,20 @@ export const PopUserSetMail = styled.p`
   margin-bottom: 10px;
 `;
 
-export const PopUserSetTheme = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin-bottom: 30px;
-`;
-
-export const PopUserSetThemeText = styled.p`
-  color: #000;
-  font-size: 14px;
-  line-height: 21px;
-  letter-spacing: -0.14px;
-`;
-
-export const InputCheckbox = styled.input.attrs({ type: "checkbox" })`
-  position: relative;
-  width: 24px;
-  height: 13px;
-  border-radius: 100px;
-  background: #eaeef6;
-  outline: none;
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
-  &::before {
-    content: "";
-    position: absolute;
-    top: 1px;
-    left: 1px;
-    width: 11px;
-    height: 11px;
-    border-radius: 50%;
-    background-color: #94a6be;
-    transition: 0.5s;
-  }
-  &:checked::before {
-    left: 12px;
-  }
-`;
-
-export const ButtonHover03 = styled.button`
+export const Button = styled.button`
   width: 72px;
   height: 30px;
   background: transparent;
   color: #565eef;
   border-radius: 4px;
   border: 1px solid #565eef;
-  &:hover,
-  &:hover a {
-    color: inherit;
+  &:hover {
     background-color: #33399b;
     color: #ffffff;
   }
 `;
 
-export const HeaderLogoDark = styled.div`
-  display: none;
-  width: 85px;
-`;
-export const Link = styled.a`
+export const ExitLink = styled(Link)`
   color: #565eef;
   &:hover {
     color: #ffffff;

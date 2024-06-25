@@ -3,6 +3,7 @@ import { appRoutes } from "../lib/appRouts.jsx";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { registration } from "../api.js";
+import { GlobalStyle } from "../global.styled.js";
 
 export default function RegisterPage() {
   const navigate = useNavigate();
@@ -48,10 +49,6 @@ export default function RegisterPage() {
         password: formValues.password,
       });
 
-      console.log("REGISTER RESPONSE", response);
-
-      //setAuth(true);
-      //setUser(response.user);
       navigate(appRoutes.MAIN);
     } catch (error) {
       console.error(error.message);
@@ -64,57 +61,58 @@ export default function RegisterPage() {
   };
 
   return (
-    <S.Wrapper>
-      <S.ContainerSignup>
-        <S.Modal>
-          <S.ModalBlock>
-            <S.ModalTitle>
-              <S.ModalTitleText>Регистрация</S.ModalTitleText>
-            </S.ModalTitle>
-            <S.ModalFormLogin onSubmit={onRegister}>
-              <S.ModalInput
-                type="text"
-                name="name"
-                value={formValues.name}
-                onChange={onInputChange}
-                id="first-name"
-                placeholder="Имя"
-              />
-              <S.ModalInput
-                type="text"
-                name="login"
-                value={formValues.login}
-                onChange={onInputChange}
-                id="loginReg"
-                placeholder="Логин"
-              />
-              <S.ModalInput
-                type="password"
-                value={formValues.password}
-                onChange={onInputChange}
-                name="password"
-                id="passwordFirst"
-                placeholder="Пароль"
-              />
-              <S.ModalButtonSignup id="SignUpEnter">
-                <S.ModalButtonLink to={appRoutes.REGISTER}>
-                  Зарегистрироваться
-                </S.ModalButtonLink>
-              </S.ModalButtonSignup>
-              <S.ModalFormGroup>
-                <S.ModalFormText>
-                  Уже есть аккаунт?{" "}
-                  <S.ModalFormLink to={appRoutes.MAIN}>
-                    Войдите здесь
-                  </S.ModalFormLink>
-                </S.ModalFormText>
-              </S.ModalFormGroup>
-            </S.ModalFormLogin>
-          </S.ModalBlock>
-        </S.Modal>
-      </S.ContainerSignup>
-    </S.Wrapper>
+    <>
+      <GlobalStyle />
+      <S.Wrapper>
+        <S.ContainerSignup>
+          <S.Modal>
+            <S.ModalBlock>
+              <S.ModalTitle>
+                <S.ModalTitleText>Регистрация</S.ModalTitleText>
+              </S.ModalTitle>
+              <S.ModalFormLogin onSubmit={onRegister}>
+                <S.ModalInput
+                  type="text"
+                  name="name"
+                  value={formValues.name}
+                  onChange={onInputChange}
+                  id="first-name"
+                  placeholder="Имя"
+                />
+                <S.ModalInput
+                  type="text"
+                  name="login"
+                  value={formValues.login}
+                  onChange={onInputChange}
+                  id="loginReg"
+                  placeholder="Логин"
+                />
+                <S.ModalInput
+                  type="password"
+                  value={formValues.password}
+                  onChange={onInputChange}
+                  name="password"
+                  id="passwordFirst"
+                  placeholder="Пароль"
+                />
+                <S.ModalButtonSignup id="SignUpEnter">
+                  <S.ModalButtonLink to={appRoutes.REGISTER}>
+                    Зарегистрироваться
+                  </S.ModalButtonLink>
+                </S.ModalButtonSignup>
+                <S.ModalFormGroup>
+                  <S.ModalFormText>
+                    Уже есть аккаунт?{" "}
+                    <S.ModalFormLink to={appRoutes.MAIN}>
+                      Войдите здесь
+                    </S.ModalFormLink>
+                  </S.ModalFormText>
+                </S.ModalFormGroup>
+              </S.ModalFormLogin>
+            </S.ModalBlock>
+          </S.Modal>
+        </S.ContainerSignup>
+      </S.Wrapper>
+    </>
   );
 }
-
-//export default RegisterPage;

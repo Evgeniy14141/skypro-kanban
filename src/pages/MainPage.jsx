@@ -2,7 +2,6 @@ import { getTodos } from "../api";
 import { useState } from "react";
 import { useEffect } from "react";
 import { Outlet } from "react-router-dom";
-import "../App.css";
 import Main from "../components/Main/Main";
 import Header from "../components/Header/Header";
 import { useUser } from "../../src/components/hooks/userUser";
