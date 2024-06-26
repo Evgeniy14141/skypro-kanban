@@ -28,4 +28,5 @@ export const FormatDate = styled.span`
   color: black;
   font-weight: 400;
   line-height: 12px;
+  padding-left: 3px;
 `;
