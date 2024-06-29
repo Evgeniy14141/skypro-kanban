@@ -3,7 +3,7 @@ import { appRoutes } from "../../lib/appRouts";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { loginUser } from "../../api";
-import { useUser } from "../../components/hooks/userUser";
+import { useUser } from "../../hooks/userUser";
 import { GlobalStyle } from "../../global.styled";
 
 const Login = () => {
@@ -25,7 +25,7 @@ const Login = () => {
     event.preventDefault();
 
     if (!formValues.login) {
-      setError("Введите логин");
+      setError("Введите адрес электронной почты");
       return;
     }
 
@@ -39,8 +39,6 @@ const Login = () => {
         login: formValues.login,
         password: formValues.password,
       });
-
-      console.log("LOGIN RESPONSE", response.user);
 
       setError(null);
       setUser(response.user);
@@ -65,7 +63,7 @@ const Login = () => {
                 <S.ModalInput
                   type="text"
                   value={formValues.login}
-                  placeholder="Логин"
+                  placeholder="Эл. Почта"
                   name="login"
                   onChange={onInputChange}
                 ></S.ModalInput>

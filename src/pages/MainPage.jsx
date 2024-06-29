@@ -4,8 +4,8 @@ import { useEffect } from "react";
 import { Outlet } from "react-router-dom";
 import Main from "../components/Main/Main";
 import Header from "../components/Header/Header";
-import { useUser } from "../../src/components/hooks/userUser";
-import { useTasks } from "../../src/components/hooks/userTusk";
+import { useUser } from "../../src/hooks/userUser";
+import { useTasks } from "../../src/hooks/userTusk";
 import { GlobalStyle } from "../global.styled";
 import * as S from "../components/Login/Login.styled";
 

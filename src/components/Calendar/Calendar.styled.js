@@ -14,7 +14,9 @@ export const CalendarTitle = styled.p`
   line-height: 1;
 `;
 
-export const StyledDayPicker = styled(DayPicker)``;
+export const StyledDayPicker = styled(DayPicker)`
+  color: #94a6be;
+`;
 
 export const CalendarTitleBottom = styled.p`
   color: #94a6be;

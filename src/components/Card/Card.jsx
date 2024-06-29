@@ -1,5 +1,7 @@
 import * as S from "./Card.styled";
 import { Link } from "react-router-dom";
+import { format } from "date-fns";
+import { ru } from "date-fns/locale";
 
 const Card = ({ topic, title, date, id }) => {
   const colorList = {
@@ -61,7 +63,7 @@ const Card = ({ topic, title, date, id }) => {
                 </clipPath>
               </defs>
             </S.CardDateSvg>
-            <S.CardCateP>{date}</S.CardCateP>
+            <S.CardCateP>{format(date, "dd.MM.yy", { locale: ru })}</S.CardCateP>
           </S.CardDate>
         </S.CardContent>
       </S.CardsCardCard>

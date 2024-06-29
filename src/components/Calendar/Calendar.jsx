@@ -9,12 +9,14 @@ const Calendar = ({ selected, setSelected }) => {
     <>
       <S.Calendar>
         <S.CalendarTitle>Даты</S.CalendarTitle>
+        <S.StyledDayPicker>
         <DayPicker
           mode="single"
           selected={selected}
           onSelect={setSelected}
           locale={ru}
         />
+        </S.StyledDayPicker>
         {!selected && (
           <S.CalendarTitleBottom>
             Выберите срок исполнения
@@ -22,7 +24,7 @@ const Calendar = ({ selected, setSelected }) => {
         )}
         {selected && (
           <S.CalendarTitleBottom>
-            Срок исполнения: 
+            Срок исполнения:
             <S.FormatDate>
               {format(selected, "dd.MM.yy", { locale: ru })}
             </S.FormatDate>.

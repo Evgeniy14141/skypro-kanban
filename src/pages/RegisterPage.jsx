@@ -33,7 +33,7 @@ export default function RegisterPage() {
     }
 
     if (!formValues.login || formValues.login.trim().length === 0) {
-      setError("Не введен логин");
+      setError("Не введена почта");
       return;
     }
 
@@ -80,12 +80,12 @@ export default function RegisterPage() {
                   placeholder="Имя"
                 />
                 <S.ModalInput
-                  type="text"
+                  type="email"
                   name="login"
                   value={formValues.login}
                   onChange={onInputChange}
                   id="loginReg"
-                  placeholder="Логин"
+                  placeholder="Эл. Почта"
                 />
                 <S.ModalInput
                   type="password"
