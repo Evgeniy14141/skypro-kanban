@@ -6,7 +6,6 @@ import Main from "../components/Main/Main";
 import Header from "../components/Header/Header";
 import { useUser } from "../../src/hooks/userUser";
 import { useTasks } from "../../src/hooks/userTusk";
-import { GlobalStyle } from "../global.styled";
 import * as S from "../components/Login/Login.styled";
 
 const MainPage = () => {
@@ -31,7 +30,7 @@ const MainPage = () => {
 
   return (
     <>
-      <GlobalStyle />
+      {/* <GlobalStyle /> */}
       <S.Wrapper>
         <Header />
         {getTasksError && <p>{getTasksError}</p>}
