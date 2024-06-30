@@ -2,10 +2,10 @@ import { useNavigate, useParams } from "react-router-dom";
 import Calendar from "../Calendar/Calendar";
 import { appRoutes } from "../../lib/appRouts";
 import * as S from "./PopBrowse.styled";
-import { useUser } from "../hooks/userUser";
+import { useUser } from "../../hooks/userUser";
 import { deleteTask, editTask, getTodos } from "../../api";
 import { useEffect, useState } from "react";
-import { useTasks } from "../../components/hooks/userTusk";
+import { useTasks } from "../../hooks/userTusk";
 import { categoryColors } from "../../colors";
 import { statusList } from "../Main/Main";
 
@@ -60,8 +60,6 @@ const PopBrowse = () => {
         token: userData.token,
       });
 
-      console.log("DELETE RESPONSE", response);
-
       setError(null);
       setTasks(response.tasks);
       navigate(appRoutes.MAIN);
@@ -86,7 +84,6 @@ const PopBrowse = () => {
         date: changeTask.date,
       });
 
-      console.log("EDIT RESPONSE", response);
       setTasks(response.tasks);
       setError(null);
       setIsEdit(false);

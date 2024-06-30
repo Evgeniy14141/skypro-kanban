@@ -1,7 +1,7 @@
 import { useState } from "react";
 import * as S from "./Header.styled";
 import { appRoutes } from "../../lib/appRouts";
-import { useUser } from "../../components/hooks/userUser";
+import { useUser } from "../../hooks/userUser";
 import { Container } from "../shared.styled";
 
 const Header = () => {

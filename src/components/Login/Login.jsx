@@ -3,8 +3,7 @@ import { appRoutes } from "../../lib/appRouts";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { loginUser } from "../../api";
-import { useUser } from "../../components/hooks/userUser";
-import { GlobalStyle } from "../../global.styled";
+import { useUser } from "../../hooks/userUser";
 
 const Login = () => {
   const { setUser } = useUser();
@@ -25,7 +24,7 @@ const Login = () => {
     event.preventDefault();
 
     if (!formValues.login) {
-      setError("Введите логин");
+      setError("Введите адрес электронной почты");
       return;
     }
 
@@ -40,8 +39,6 @@ const Login = () => {
         password: formValues.password,
       });
 
-      console.log("LOGIN RESPONSE", response.user);
-
       setError(null);
       setUser(response.user);
       navigate(appRoutes.MAIN);
@@ -51,52 +48,45 @@ const Login = () => {
   };
 
   return (
-    <>
-      <GlobalStyle />
-      <S.Wrapper>
-        <S.ContainerSigin>
-          <S.Modal>
-            <S.ModalBlock>
-              <S.ModalTitleWrapper>
-                <S.ModalTitle>Вход</S.ModalTitle>
-              </S.ModalTitleWrapper>
+    <S.Wrapper>
+      <S.ContainerSigin>
+        <S.Modal>
+          <S.ModalBlock>
+            <S.ModalTitleWrapper>
+              <S.ModalTitle>Вход</S.ModalTitle>
+            </S.ModalTitleWrapper>
 
-              <S.ModalFormLogin onSubmit={onLogin}>
-                <S.ModalInput
-                  type="text"
-                  value={formValues.login}
-                  placeholder="Логин"
-                  name="login"
-                  onChange={onInputChange}
-                ></S.ModalInput>
-                <S.ModalInput
-                  type="password"
-                  name="password"
-                  placeholder="Пароль"
-                  value={formValues.password}
-                  onChange={onInputChange}
-                ></S.ModalInput>
+            <S.ModalFormLogin onSubmit={onLogin}>
+              <S.ModalInput
+                type="text"
+                value={formValues.login}
+                placeholder="Эл. Почта"
+                name="login"
+                onChange={onInputChange}
+              ></S.ModalInput>
+              <S.ModalInput
+                type="password"
+                name="password"
+                placeholder="Пароль"
+                value={formValues.password}
+                onChange={onInputChange}
+              ></S.ModalInput>
 
-                {error && <p>{error}</p>}
-                <S.ModalButtonEnter
-                  id="btnEnter"
-                  type="submit"
-                  onClick={onLogin}
-                >
-                  Войти
-                </S.ModalButtonEnter>
-                <S.ModalFormGroup>
-                  <S.ModalFormText>Нужно зарегистрироваться?</S.ModalFormText>
-                  <S.ModalFormLink to={appRoutes.REGISTER}>
-                    Регистрируйтесь здесь
-                  </S.ModalFormLink>
-                </S.ModalFormGroup>
-              </S.ModalFormLogin>
-            </S.ModalBlock>
-          </S.Modal>
-        </S.ContainerSigin>
-      </S.Wrapper>
-    </>
+              {error && <p>{error}</p>}
+              <S.ModalButtonEnter id="btnEnter" type="submit" onClick={onLogin}>
+                Войти
+              </S.ModalButtonEnter>
+              <S.ModalFormGroup>
+                <S.ModalFormText>Нужно зарегистрироваться?</S.ModalFormText>
+                <S.ModalFormLink to={appRoutes.REGISTER}>
+                  Регистрируйтесь здесь
+                </S.ModalFormLink>
+              </S.ModalFormGroup>
+            </S.ModalFormLogin>
+          </S.ModalBlock>
+        </S.Modal>
+      </S.ContainerSigin>
+    </S.Wrapper>
   );
 };
 

@@ -1,8 +1,7 @@
 import Column from "../Column/Column";
 import * as S from "./Main.styled";
 import { Container } from "../shared.styled";
-
-import { useTasks } from "../../components/hooks/userTusk";
+import { useTasks } from "../../hooks/userTusk";
 
 export const statusList = [
   "Без статуса",

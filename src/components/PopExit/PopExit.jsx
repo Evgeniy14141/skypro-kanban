@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import { appRoutes } from "../../lib/appRouts";
-import { useUser } from "../hooks/userUser";
+import { useUser } from "../../hooks/userUser";
 import * as S from "./PopExit.style";
 
 const PopExit = () => {

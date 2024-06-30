@@ -2,8 +2,8 @@ import Calendar from "../Calendar/Calendar";
 import * as S from "./PopNewCard";
 import { appRoutes } from "../../lib/appRouts";
 import { useState } from "react";
-import { useUser } from "..//hooks/userUser";
-import { useTasks } from "..//hooks/userTusk";
+import { useUser } from "../../hooks/userUser";
+import { useTasks } from "../../hooks/userTusk";
 import { addTask } from "../../api";
 import { useNavigate } from "react-router-dom";
 
@@ -53,7 +53,6 @@ const PopNewCard = () => {
       setTasks(response.tasks);
       navigate(appRoutes.MAIN);
     } catch (error) {
-      console.log(error.message);
       setError("Что-то пошло не так. Попробуйте еще раз!");
     } finally {
       setIsLoading(false);

@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import { DayPicker } from "react-day-picker";
 
 export const Calendar = styled.div`
   margin-bottom: 20px;
@@ -14,7 +13,9 @@ export const CalendarTitle = styled.p`
   line-height: 1;
 `;
 
-export const StyledDayPicker = styled(DayPicker)``;
+export const StyledDayPicker = styled.div`
+  color: #94a6be;
+`;
 
 export const CalendarTitleBottom = styled.p`
   color: #94a6be;
@@ -28,4 +29,5 @@ export const FormatDate = styled.span`
   color: black;
   font-weight: 400;
   line-height: 12px;
+  padding-left: 3px;
 `;
